@@ -18,6 +18,14 @@ TEST(EchoTest, Numbers) {
 	char* test_val[3]; test_val[0]= "./c-echo"; test_val[1] = "1"; test_val[2] = "2"; 
 	EXPECT_EQ("1 2", echo(3, test_val));
 }
+TEST(EchoTest, Spaces) {
+	char* test_val[2]; test_val[0] = "./c-echo"; test_val[1] = "Hello World ";
+	EXPECT_EQ("Hello World ", echo(2, test_val));
+}
+TEST(EchoTest, Symbols) {
+	char* test_val[3]; test_val[0] = "./c-echo"; test_val[1] = "@"; test_val[2] = "$";
+	EXPECT_EQ("@ $", echo(3, test_val));
+} 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
